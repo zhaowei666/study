@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="application/javascript">
+
+
+
+    function Star() {
+    }
+
+    var a = new Star();
+    console.log(a, '对象实例');
+    console.log(a.__proto__, '对象原型');
+    console.log(Star, '构造函数');
+    console.log(Star.constructor);
+    console.log(Star.prototype, '对象原型');
+    console.log(a.__proto__.constructor, '构造函数');
+    console.log(a.constructor, '构造函数');
+    console.log(Star.prototype.constructor, '构造函数');
+    console.log(a.__proto__ === Star.prototype);
+    console.log(a.__proto__.constructor === Star);
+    console.log(Star.prototype.constructor === Star);
+    //
+    // console.log('===========================================================================================================');
+    //
+    // console.log(a.__proto__);
+    // console.log(a.constructor);
+    // console.log(Star.__proto__.__proto__.__proto__);
+    // console.log(Star.__proto__ === Star.prototype);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kids管理端</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/body.css">
+</head>
+<body>
+<!--导航栏-->
+<div class="nav-left">
+       <h2>HIMOKIDS</h2>
+        <ul class="nav-left-list">
+           <li class="nav-left-menu">
+               <img src="./images/home.png" alt="">概况
+           </li>
+           <li>
+               <div class="nav-left-menu">
+                   <img src="./images/sys.png" alt="">
+                   <a href="#">摄影师中心</a><span></span>
+                   <span class="nav-left-down"> > </span>
+               </div>
+               <ul class="nav-left-child-menu">
+                   <li> <a href="#">拍摄订单</a></li>
+                   <li> <a href="#">历史上传记录</a></li>
+               </ul>
+           </li>
+           <li>
+               <div class="nav-left-menu">
+                   <img src="./images/wenjian.png" alt="">
+                   <a href="#">审核中心</a>
+                   <span class="nav-left-down"> > </span>
+               </div>
+               <ul class="nav-left-child-menu">
+                   <li> <a href="#">拍摄订单</a></li>
+                   <li> <a href="#">历史上传记录</a></li>
+               </ul>
+           </li>
+           <li>
+               <div class="nav-left-menu">
+                   <img src="./images/photo.png" alt="">
+                   <a href="#">看片中心</a>
+                   <span class="nav-left-down"> > </span>
+               </div>
+               <ul class="nav-left-child-menu">
+                   <li> <a href="#">拍摄订单</a></li>
+                   <li> <a href="#">历史上传记录</a></li>
+               </ul>
+           </li>
+
+           <li>
+               <div class="nav-left-menu">
+                   <img src="./images/xiao.png" alt="">
+                   <a href="#">客片池</a>
+                   <span class="nav-left-down"> > </span>
+               </div>
+               <ul class="nav-left-child-menu">
+                   <li> <a href="#">拍摄订单</a></li>
+                   <li> <a href="#">历史上传记录</a></li>
+               </ul>
+           </li>
+        </ul>
+
+<!--    </div>-->
+
+</div>
+<div class="body-right">
+<!--    导航栏-->
+    <div class="body-nav">
+        <button class="body-nav-logout">安全退出</button>
+        <button class="body-nav-select-store">切换门店</button>
+        <span>杭州滨江宝龙KIDS店</span>
+        <span>|</span>
+        <span>白星</span>
+        <img src="./images/zhanghu.svg" alt="">
+
+        
+    </div>
+    <div class="body-title">
+
+    </div>
+    <div class="body-form body-form-order">
+
+    </div>
+
+    <div class="body-table body-table-staff">
+
+    </div>
+    <div class="body-table">
+
+    </div>
+
+</div>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="application/javascript">
+    var downBtn = document.querySelectorAll('.nav-left-down');
+
+    for (var i = 0; i< downBtn.length; i++){
+        let index = i;
+        downBtn[index].onclick = showTab;
+    }
+
+    function showTab(){
+        // console.log();
+
+        $(this).parent().siblings('ul').slideToggle();
+        // var li = this.parentNode.parentNode;
+        // $(".nav-left-child-menu").slideToggle();
+        // var menu = li.querySelector('.nav-left-child-menu');
+        // menu.slideDown();
+
+        // menu.style.display = 'block'
+        // console.log(menu.style.display);
+        // console.log(menu);
+
+    }
+
+
+</script>
+</body>
+</html>

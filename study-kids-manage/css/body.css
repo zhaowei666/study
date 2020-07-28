@@ -1,0 +1,42 @@
+.body-right{
+    float: left;
+    width: 1055px;
+    height: 3000px;
+}
+.body-nav{
+    height: 60px;
+    background: rgb(245, 245, 245);
+    padding-right: 65px;
+}
+.body-nav button{
+    width: 69px;
+    height: 28px;
+    margin: 15px 0;
+    border: none;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+}
+.body-nav .body-nav-logout{
+    display: block;
+    float: right;
+    background: rgb(233, 83, 89);
+    color: rgb(255, 255, 255);
+}
+
+.body-nav .body-nav-select-store{
+    float: right;
+    margin: 15px;
+    background: rgb(25, 134, 255);
+}
+.body-nav span{
+    float: right;
+    line-height: 60px;
+    margin-right:15px;
+    font-size: 14px;
+}
+.body-nav img {
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin: 20px 15px;
+}
