@@ -1,0 +1,280 @@
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+/*禁用长按页面时的弹出菜单*/
+
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+div {
+    /* css3 盒子模型 */
+    box-sizing: border-box;
+}
+.fl{
+    float: left;
+
+ }
+.fr{
+    float: right;
+}
+
+.tips{
+    position: relative;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 24px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    background-color: rgb(253, 245, 231);
+}
+.tips-left{
+    color: #F7B425;
+}
+.tips-right{
+    position: absolute;
+    display: block;
+    width: 62px;
+    height: 24px;
+    right: 16px;
+    top: 10px;
+    line-height: 24px;
+    text-align:  center;
+    background-color: #FBC400;
+    border-radius: 16px;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.product-wrap{
+    position: relative;
+}
+.product-wrap img{
+    width: 100%;
+}
+.product-content{
+    position: absolute;
+    top: 254px;
+    width: 100%;
+    height: 113px;
+    background-color: #fff;
+    padding-top: 26px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.product-name{
+    font-size: 20px;
+    font-weight: 600;
+}
+.product_desc{
+    font-size: 12px;
+    color: #919199;
+}
+.product-price{
+    position: absolute;
+    top: 26px;
+    right: 16px;
+
+}
+.product-price p{
+    float: left;
+}
+.price{
+    font-size: 20px;
+    font-weight: 600;
+    color:#E4170E;
+}
+.price-right{
+    color:#E4170E;
+    font-size: 11px;
+    font-weight: normal;
+}
+.ori-price{
+    color: #919199;
+    font-size: 14px;
+}
+.ori-price-right{
+    color: #919199;
+    font-size: 6px;
+}
+/*服务*/
+.product-service{
+    margin-top: 97px;
+    width: 100%;
+    height: 104px;
+    padding: 0 16px;
+}
+.product-service div{
+    position: relative;
+    border-top:1px solid transparent ;
+    width: 100%;
+    height: 104px;
+    margin: 13px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(204, 204, 204, .4);
+}
+.product-service div ul{
+    margin: 13px 0;
+    width: 100%;
+    height: 100%;
+}
+.product-service ul li{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.product-service ul li img{
+    width: 40px;
+}
+.service-name{
+    color: #16161A;
+    font-size: 13px;
+}
+.service-desc{
+    color: #919199;
+    font-size: 10px;
+}
+.product-service div .konglong{
+    position: absolute;
+    width: 40px;
+    top: -40px;
+    right: 33px;
+    background-color: transparent;
+    box-shadow: none;
+}
+.product-service div .konglongshou{
+
+    position: absolute;
+    width: 32px;
+    top: -21px;
+    right: 41px;
+    background-color: transparent;
+    box-shadow: none;
+}
+.konglongshou img{
+    width: 100%
+}
+
+.konglong img{
+    width: 100%;
+}
+/*服务说明、样片展示*/
+.service-photo{
+    width: 100%;
+    padding: 16px 16px 0;
+
+}
+.service-title{
+    width: 100%;
+    height: 47px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: 0 -5px 12px rgba(204, 204, 204, .4);
+}
+.service-title div{
+    float: left;
+    width: 50%;
+    text-align: center;
+    line-height: 47px;
+    font-size: 17px;
+    color: #45454D;
+}
+
+.service-title .service-title-selected{
+    color: #FBC400;
+}
+.service-intro{
+    box-shadow: 0 5px 12px rgba(204, 204, 204, .4);
+    padding: 16px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.image-content img{
+    margin-bottom: 10px
+
+}
+.image-intro-content{
+    width: 308px;
+
+}
+/*底部button*/
+.bottom-wrap{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    padding:8px 16px;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(204, 204, 204, .4);
+}
+.button-wrap{
+    width: 100%;
+    height: 100%;
+
+}
+.add-cart{
+    width: 35%;
+    background-color: #FFD939;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.add-product{
+    width: 65%;
+    background-color: #FBC400;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.button-wrap div{
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 15px;
+}

@@ -1,0 +1,84 @@
+.nav {
+    width: 344px;
+    height: 20px;
+    border-bottom: 1px solid #E4E4E7;
+    padding: 10px 15px 9px 16px;
+    margin: 0 auto;
+    font-family: "苹方-简";
+}
+
+.nav-left {
+    float: left;
+    font-size: 14px;
+}
+
+.nav-left span {
+    color: #FBC400;
+    font-size: 15px;
+}
+
+.nav-right {
+    float: right;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: #919199;
+    font-size: 14px;
+}
+
+.banner {
+    width: 343px;
+    height: 154px;
+    margin: 0 auto;
+    padding: 21px 16px;
+    padding-bottom: 10px;
+}
+
+.banner img {
+    width: 343px;
+    height: 144px;
+}
+
+.banner-item {
+    width: 40px;
+    height: 6px;
+    margin: 0 auto;
+}
+.banner-item-selected{
+    float: left;
+    width: 12px;
+    height: 6px;
+    border-radius: 6px;
+    background-color: #FBC400;
+}
+.banner-item-normal {
+    float: left;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    margin-left: 8px;
+    background-color: #E3E3E6;
+}
+.product-title{
+    width: 360px;
+    height: 44px;
+    margin: 0 auto;
+    padding-left: 15px;
+    box-shadow:0 2.08px 3.26667px 0 rgba(0, 0, 0, 0.1)
+}
+.product-title ul li {
+    line-height: 44px;
+    margin-right: 26px;
+    float: left;
+}
+.product-title-normal{
+    font-size: 14px;
+    color: #919199;
+}
+.product-title-selected {
+    font-size: 18px;
+    color: #16161A;
+    border-bottom: 2px solid #FBC400;
+
+}

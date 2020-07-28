@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///Users/himotech/Documents/study/kids-user-v2/detail.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="./产品详情_files/normalize.css">
+    <link rel="stylesheet" href="./产品详情_files/detail.css">
+    <title>产品详情</title>
+</head>
+<body>
+<header style="display: none">
+    <div class="tips">
+        <span class="tips-left fl">购买全家福拍摄卡可享第二份半价</span>
+        <span class="tips-right fr">抢先参加</span>
+    </div>
+</header>
+<div class="product-wrap">
+    <img src="./产品详情_files/dt-familyWarm.jpg" alt="">
+    <div class="product-content">
+        <p class="product-name">全家福-风和日暖</p>
+        <p class="product_desc">“给自己及家人温暖的记忆 ”</p>
+        <div class="product-price">
+            <span class="ori-price">￥399</span><span class="ori-price-right">/套</span>
+            <span class="price">￥599</span><span class="price-right">/套</span>
+        </div>
+    </div>
+    <div class="product-service">
+        <div>
+            <div class="konglong">
+                <img src="./产品详情_files/konglong.png" alt="">
+            </div>
+            <div class="konglongshou">
+                <img src="./产品详情_files/konglongshou.png" alt="">
+            </div>
+            <ul>
+                <li>
+                    <img src="./产品详情_files/service-make.png" alt="">
+                    <p class="service-name">化妆</p>
+                    <p class="service-desc">1套造型</p>
+                </li>
+                <li>
+                    <img src="./产品详情_files/service-close.png" alt="">
+                    <p class="service-name">服装</p>
+                    <p class="service-desc">1套服装</p>
+                </li>
+                <li>
+                    <img src="./产品详情_files/service-camera.png" alt="">
+                    <p class="service-name">拍摄p&gt;
+                    </p><p class="service-desc">半身照</p>
+                </li>
+                <li>
+                    <img src="./产品详情_files/service-ps.png" alt="">
+                    <p class="service-name">修图</p>
+                    <p class="service-desc">1张精修底片</p>
+                </li>
+                <li>
+                    <img src="./产品详情_files/service-print.png" alt="">
+                    <p class="service-name">冲印</p>
+                    <p class="service-desc">1张6寸照</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="service-photo">
+        <div class="service-title">
+            <div class="service-title-selected">展示</div>
+            <div>服务说明</div>
+        </div>
+        <div class="service-intro">
+            <div class="image-content" style="display: none">
+                <img src="./产品详情_files/e6686e60d23eb0a7f846ebe79801d048.png">
+                <img src="./产品详情_files/f628b0ec8347b7ebdb380212afabbe4d.png">
+                <img src="./产品详情_files/14ee71cf6515e93e6aacbbb8d43858a0.png">
+                <img src="./产品详情_files/23ba3f88e5787c7d147d3d06fd9d0b09.png">
+            </div>
+            <div class="image-intro-content">
+                <img src="./产品详情_files/intro-familyWarm.png">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div style="width: 100%; height: 150px;"></div>
+<div class="bottom-wrap">
+    <div class="button-wrap">
+        <div class="add-cart">加购物车</div>
+        <div class="add-product">立即预约</div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var serviceTitle = document.querySelector('.service-title');
+    var serviceChildren = serviceTitle.children;
+    console.log(serviceChildren)
+    serviceChildren[0].click = () => {
+        console.log(123)
+    }
+    for (var i = 0; i < serviceChildren.length; i++) {
+        let index = i
+        serviceChildren[index].click = () =>{
+            console.log(index)
+        }
+    }
+</script>
+</body></html>
