@@ -8,125 +8,136 @@
     <title>产品详情</title>
 </head>
 <body>
-<header style="display: none">
-    <div class="tips">
-        <span class="tips-left fl">购买全家福拍摄卡可享第二份半价</span>
-        <span class="tips-right fr">抢先参加</span>
-    </div>
-</header>
-<div class="product-wrap">
-    <img src="https://cdn.himokids.com/HMA_Kids_Upload/dt-familyWarm.jpg" alt="">
-    <div class="product-content">
-        <p class="product-name">全家福-风和日暖</p>
-        <p class="product_desc">“给自己及家人温暖的记忆 ”</p>
-        <div class="product-price">
-            <span class="ori-price">￥399</span><span class="ori-price-right">/套</span>
-            <span class="price">￥599</span><span class="price-right">/套</span>
+<div id="app" v-cloak>
+    <header style="display: none">
+        <div class="tips">
+            <span class="tips-left fl">购买全家福拍摄卡可享第二份半价</span>
+            <span class="tips-right fr">抢先参加</span>
+        </div>
+    </header>
+    <div class="product-wrap">
+        <img :src="detail.msg.P_ImgPath">
+        <div class="product-content">
+            <p class="product-name" v-text="detail.msg.P_Name"></p>
+            <p class="product_desc">“给自己及家人温暖的记忆 ”</p>
+            <div class="product-price">
+                <span class="ori-price"><s>￥{{detail.msg.P_OriPrice}}</s></span><span class="ori-price-right">/套</span>
+                <span class="price">￥{{ detail.msg.P_Price }}</span><span class="price-right">/套</span>
+            </div>
+        </div>
+        <div class="product-service">
+            <div>
+                <div class="konglong">
+                    <img src="./images/konglong.png" alt="">
+                </div>
+                <div class="konglongshou">
+                    <img src="./images/konglongshou.png" alt="">
+                </div>
+                <ul>
+                    <li>
+                        <img src="./images/service-make.png" alt="">
+                        <p class="service-name">化妆</p>
+                        <p class="service-desc">1套造型</p>
+                    </li>
+                    <li>
+                        <img src="./images/service-close.png" alt="">
+                        <p class="service-name">服装</p>
+                        <p class="service-desc">1套服装</p>
+                    </li>
+                    <li>
+                        <img src="./images/service-camera.png" alt="">
+                        <p class="service-name">拍摄</p>
+                        <p class="service-desc">半身照</p>
+                    </li>
+                    <li>
+                        <img src="./images/service-ps.png" alt="">
+                        <p class="service-name">修图</p>
+                        <p class="service-desc">1张精修底片</p>
+                    </li>
+                    <li>
+                        <img src="./images/service-print.png" alt="">
+                        <p class="service-name">冲印</p>
+                        <p class="service-desc">1张6寸照</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="service-photo">
+            <div class="service-title" ref="box">
+                <div :class="selectShow ? 'service-title-selected' : ''" @click="selectModel()">展示</div>
+                <div :class="!selectShow ? 'service-title-selected' : ''" @click='selectModel()'>服务说明</div>
+            </div>
+            <div class="service-intro">
+                <div class="image-content" v-show="selectShow">
+                    <img :src="item.path"
+                         v-for='(item, index) in detail.msg.P_Photo'
+                    >
+                </div>
+                <div class="image-intro-content" v-show="!selectShow">
+                    <img :src="detail.msg.P_IntroPath"
+                    >
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="product-service">
-        <div>
-            <div class="konglong">
-                <img src="./images/konglong.png" alt="">
-            </div>
-            <div class="konglongshou">
-                <img src="./images/konglongshou.png" alt="">
-            </div>
-            <ul>
-                <li>
-                    <img src="./images/service-make.png" alt="">
-                    <p class="service-name">化妆</p>
-                    <p class="service-desc">1套造型</p>
-                </li>
-                <li>
-                    <img src="./images/service-close.png" alt="">
-                    <p class="service-name">服装</p>
-                    <p class="service-desc">1套服装</p>
-                </li>
-                <li>
-                    <img src="./images/service-camera.png" alt="">
-                    <p class="service-name">拍摄</p>
-                    <p class="service-desc">半身照</p>
-                </li>
-                <li>
-                    <img src="./images/service-ps.png" alt="">
-                    <p class="service-name">修图</p>
-                    <p class="service-desc">1张精修底片</p>
-                </li>
-                <li>
-                    <img src="./images/service-print.png" alt="">
-                    <p class="service-name">冲印</p>
-                    <p class="service-desc">1张6寸照</p>
-                </li>
-            </ul>
+    <div style="width: 100%; height: 150px;
+    min-width: 320px;
+    max-width: 640px;"></div>
+    <div class="bottom-wrap">
+        <div class="button-wrap">
+            <div class="add-cart">加购物车</div>
+            <div class="add-product" @click="addProduct">立即预约</div>
         </div>
     </div>
-    <div class="service-photo">
-        <div class="service-title" ref="box">
-            <div :class="selectShow ? 'service-title-selected' : ''" @click="selectModel()">展示</div>
-            <div :class="!selectShow ? 'service-title-selected' : ''" @click='selectModel()'>服务说明</div>
-        </div>
-        <div class="service-intro">
-            <div class="image-content" v-show="selectShow">
-                <img src="https://cdn.himokids.com/kids-sample/e6686e60d23eb0a7f846ebe79801d048.png">
-                <img src="https://cdn.himokids.com/kids-sample/f628b0ec8347b7ebdb380212afabbe4d.png">
-                <img src="https://cdn.himokids.com/kids-sample/14ee71cf6515e93e6aacbbb8d43858a0.png">
-                <img src="https://cdn.himokids.com/kids-sample/23ba3f88e5787c7d147d3d06fd9d0b09.png">
+    <div class="van-overflow-hidden" v-show="service_card" style="display: none">
+        <div class="service-card">
+            <div class="service-product-title">
+                <p class="product-name" v-text="detail.msg.P_Name"></p>
+                <p class="product_desc">已选：九张-3人</p>
+                <div class="card-close" @click="cardClose">
+                    <img src="./images/close.png" alt="">
+                </div>
             </div>
-            <div class="image-intro-content" v-show="!selectShow">
-                <img src="https://cdn.himokids.com/HMA_Kids_Upload/intro-familyWarm.png">
+            <div class="service-card-content">
+                <div class="service-card-product-type">
+                    <div class="service-card-product-title">
+                        产品类型
+                    </div>
+                    <div class="service-card-product-value">
+                        <span>
+                          九张
+                        </span>
+                    </div>
+                </div>
+                <div class="service-card-people-num">
+                    <div class="people-num-title">
+                        人数类型
+                    </div>
+                    <div class="service-card-product-value">
+                        <span>
+                          九张
+                        </span>
+                        <span>
+                          九张
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card-bottom">
+                <div class="service-card-bottom-price">
+                        <span>合计:</span>
+                        <span>￥2599.00</span>
+                </div>
+                <div class="service-card-button">
+                    确定
+                </div>
             </div>
         </div>
 
     </div>
 </div>
-<div style="width: 100%; height: 150px;"></div>
-<div class="bottom-wrap">
-    <div class="button-wrap">
-        <div class="add-cart">加购物车</div>
-        <div class="add-product">立即预约</div>
-    </div>
-</div>
-
 </body>
 <script type="text/javascript" src="./js/common/vue.js"></script>
-<script type="text/javascript">
-    // var serviceTitle = document.querySelector('.service-title');
-    // var serviceChildren = serviceTitle.children;
-    // var serviceIntro = document.querySelectorAll('.service-intro div');
-    // console.log(serviceIntro);
-    // for (var i = 0; i < serviceChildren.length; i++) {
-    //     let index = i
-    //     serviceChildren[index].onclick = () =>{
-    //         serviceChildren[0].className = '';
-    //         serviceChildren[1].className = '';
-    //         serviceChildren[index].className = 'service-title-selected'
-    //         serviceIntro[0].style = 'display: none'
-    //         serviceIntro[0].style = 'display: none'
-    //         serviceIntro[index].style = 'display: block'
-
-    //     }
-    // }
-    var vm = new Vue({
-        el:'.service-title',
-        data() {
-            return{
-                selectShow: true
-            }
-        },
-        methods:{
-            selectModel : function(){
-                // this.className = 'service-title-selected'
-                // var parents = this.parents();
-                console.log(this.$refs.box)
-                this.selectShow = !this.selectShow
-                // this.className = 'service-title-selected'
-            }
-        }
-    })
-
-    function selectModel(){
-        console.log(this)
-    }
-</script>
+<script type="text/javascript" src="./js/detail.js"></script>
 </html>

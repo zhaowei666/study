@@ -23,10 +23,11 @@ input {
     -webkit-appearance: none;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 /*禁用长按页面时的弹出菜单*/
 
 img,
@@ -53,15 +54,17 @@ div {
     /* css3 盒子模型 */
     box-sizing: border-box;
 }
-.fl{
+
+.fl {
     float: left;
 
- }
-.fr{
+}
+
+.fr {
     float: right;
 }
 
-.tips{
+.tips {
     position: relative;
     width: 100%;
     padding-left: 16px;
@@ -71,10 +74,12 @@ div {
     font-size: 14px;
     background-color: rgb(253, 245, 231);
 }
-.tips-left{
+
+.tips-left {
     color: #F7B425;
 }
-.tips-right{
+
+.tips-right {
     position: absolute;
     display: block;
     width: 62px;
@@ -82,20 +87,22 @@ div {
     right: 16px;
     top: 10px;
     line-height: 24px;
-    text-align:  center;
+    text-align: center;
     background-color: #FBC400;
     border-radius: 16px;
     font-size: 12px;
     color: #FFFFFF;
 }
 
-.product-wrap{
+.product-wrap {
     position: relative;
 }
-.product-wrap img{
+
+.product-wrap img {
     width: 100%;
 }
-.product-content{
+
+.product-content {
     position: absolute;
     top: 254px;
     width: 100%;
@@ -107,79 +114,95 @@ div {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
-.product-name{
+
+.product-name {
     font-size: 20px;
     font-weight: 600;
 }
-.product_desc{
+
+.product_desc {
     font-size: 12px;
     color: #919199;
 }
-.product-price{
+
+.product-price {
     position: absolute;
     top: 26px;
     right: 16px;
 
 }
-.product-price p{
+
+.product-price p {
     float: left;
 }
-.price{
+
+.price {
     font-size: 20px;
     font-weight: 600;
-    color:#E4170E;
+    color: #E4170E;
 }
-.price-right{
-    color:#E4170E;
+
+.price-right {
+    color: #E4170E;
     font-size: 11px;
     font-weight: normal;
 }
-.ori-price{
+
+.ori-price {
     color: #919199;
     font-size: 14px;
 }
-.ori-price-right{
+
+.ori-price-right {
     color: #919199;
     font-size: 6px;
 }
+
 /*服务*/
-.product-service{
+.product-service {
     margin-top: 97px;
     width: 100%;
     height: 104px;
     padding: 0 16px;
 }
-.product-service div{
+
+.product-service div {
     position: relative;
-    border-top:1px solid transparent ;
+    border-top: 1px solid transparent;
     width: 100%;
     height: 104px;
     margin: 13px 0;
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(204, 204, 204, .4);
 }
-.product-service div ul{
+
+.product-service div ul {
     margin: 13px 0;
     width: 100%;
     height: 100%;
 }
-.product-service ul li{
+
+.product-service ul li {
     float: left;
     width: 20%;
     text-align: center;
 }
-.product-service ul li img{
+
+.product-service ul li img {
     width: 40px;
 }
-.service-name{
+
+.service-name {
     color: #16161A;
     font-size: 13px;
 }
-.service-desc{
+
+.service-desc {
     color: #919199;
     font-size: 10px;
 }
-.product-service div .konglong{
+
+.product-service div .konglong {
     position: absolute;
     width: 40px;
     top: -40px;
@@ -187,7 +210,8 @@ div {
     background-color: transparent;
     box-shadow: none;
 }
-.product-service div .konglongshou{
+
+.product-service div .konglongshou {
 
     position: absolute;
     width: 32px;
@@ -196,20 +220,23 @@ div {
     background-color: transparent;
     box-shadow: none;
 }
-.konglongshou img{
+
+.konglongshou img {
     width: 100%
 }
 
-.konglong img{
+.konglong img {
     width: 100%;
 }
+
 /*服务说明、样片展示*/
-.service-photo{
+.service-photo {
     width: 100%;
     padding: 16px 16px 0;
 
 }
-.service-title{
+
+.service-title {
     width: 100%;
     height: 47px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -217,7 +244,8 @@ div {
     border-top-right-radius: 12px;
     box-shadow: 0 -5px 12px rgba(204, 204, 204, .4);
 }
-.service-title div{
+
+.service-title div {
     float: left;
     width: 50%;
     text-align: center;
@@ -226,55 +254,187 @@ div {
     color: #45454D;
 }
 
-.service-title .service-title-selected{
+.service-title .service-title-selected {
     color: #FBC400;
 }
-.service-intro{
+
+.service-intro {
     box-shadow: 0 5px 12px rgba(204, 204, 204, .4);
     padding: 16px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
 
-.image-content img{
+.image-content img {
     margin-bottom: 10px
 
 }
-.image-intro-content{
+
+.image-intro-content {
     width: 308px;
 
 }
+
 /*底部button*/
-.bottom-wrap{
+.bottom-wrap {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 56px;
-    padding:8px 16px;
+    padding: 8px 16px;
+    min-width: 320px;
+    max-width: 640px;
     background-color: #fff;
     box-shadow: 0 0 12px rgba(204, 204, 204, .4);
 }
-.button-wrap{
+
+[v-cloak] {
+    display: none;
+}
+
+.button-wrap {
     width: 100%;
     height: 100%;
 
 }
-.add-cart{
+
+.add-cart {
     width: 35%;
     background-color: #FFD939;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
-.add-product{
+
+.add-product {
     width: 65%;
     background-color: #FBC400;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.button-wrap div{
+
+.button-wrap div {
     float: left;
     line-height: 40px;
     text-align: center;
     color: #FFFFFF;
+    font-size: 15px;
+}
+
+/*产品服务选择卡*/
+.van-overflow-hidden {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    background-color: rgba(0, 0, 0, .7);
+    max-width: 640px;
+}
+
+.service-card {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /*height: 301px;*/
+    background-color: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding-top: 20px;
+}
+
+.service-product-title {
+    padding-left: 16px;
+    width: 100%;
+    height: 82px;
+    box-shadow: 0 1px 0.16rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.service-product-title .product-name {
+    font-size: 18px;
+}
+
+.service-product-title .product_desc {
+    font-size: 12px;
+}
+.card-close{
+    position: absolute;
+    right: 12px;
+    top: 23px;
+    width: 24px;
+    height: 24px;
+}
+.card-close img{
+    width: 100%;
+}
+
+.service-card-content {
+    padding: 28px 16px;
+    width: 100%;
+    height: 211px;
+}
+
+.service-card-product-title {
+    font-size: 14px;
+    color: #333333;
+}
+
+.service-card-product-value {
+    width: 100%;
+    height: 40px;
+}
+
+.service-card-product-value span {
+    float: left;
+    display: block;
+    margin-top: 12px;
+    width: 60px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 14px;
+    color: #FFFFFF;
+    font-size: 12px;
+    background-color: #FBC400;
+    margin-right: 16px;
+}
+
+.service-card-people-num {
+    margin-top: 20px;
+}
+
+.service-card-bottom {
+    /*padding: 28px 16px;*/
+    width: 100%;
+    height: 56px;
+    padding: 8px 12px 8px 16px;
+    box-shadow: 0 -1px 0.16rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.service-card-bottom-price {
+    float: left;
+}
+
+.service-card-bottom-price span{
+    height: 18px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 40px;
+}
+.service-card-bottom-price span:nth-child(2){
+   color: #E4170E;
+}
+.service-card-bottom-price span:nth-child(1){
+    color: #16161A;
+    font-size: 15px;
+}
+.service-card-button {
+    float: right;
+    padding: 8px 0;
+    width: 48%;
+    height: 100%;
+    background: linear-gradient(to right, #FBC400, #FFD628);
+    border-radius: 20px;
+    color: #FFFFFF;
+    text-align: center;
     font-size: 15px;
 }
