@@ -63,7 +63,8 @@ var vm = new Vue({
                     ]
                 }
             },
-            service_card:false
+            service_card:false,
+            service_card_value_selected:false
         }
     },
     methods: {
@@ -78,6 +79,11 @@ var vm = new Vue({
         },
         cardClose: function () {
             this.service_card = false
+        },
+        chooseItem:function(){
+            // this.service_card_value_selected = true
+            this.className = 'service-card-product-value-selected'
+
         }
     }
 })

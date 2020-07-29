@@ -100,27 +100,22 @@
                 </div>
             </div>
             <div class="service-card-content">
-                <div class="service-card-product-type">
+                <div class="service-card-product-type" v-if="detail.msg.P_SkuIsRequire">
                     <div class="service-card-product-title">
                         产品类型
                     </div>
                     <div class="service-card-product-value">
-                        <span>
-                          九张
-                        </span>
+                        <span v-for='(item, index) in detail.msg.P_Sku' v-text="item.PS_Title"></span>
                     </div>
                 </div>
                 <div class="service-card-people-num">
                     <div class="people-num-title">
                         人数类型
                     </div>
-                    <div class="service-card-product-value">
-                        <span>
-                          九张
-                        </span>
-                        <span>
-                          九张
-                        </span>
+                    <div class="service-card-product-value"  v-for='(item, key) in detail.msg.P_Sku'>
+                        <span :class="service_card_value_selected ? 'service-card-product-value-selected' : '' "  @click="chooseItem" v-for="count in +item.PS_MaxPerson" v-if="count >= +item.PS_MinPerson">
+                          {{ count }}人
+                        </spanif>
                     </div>
                 </div>
             </div>
