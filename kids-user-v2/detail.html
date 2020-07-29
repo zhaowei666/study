@@ -63,17 +63,17 @@
     </div>
     <div class="service-photo">
         <div class="service-title" ref="box">
-            <div class="service-title-selected" @click="selectModel()">展示</div>
-            <div @click='selectModel()'>服务说明</div>
+            <div :class="selectShow ? 'service-title-selected' : ''" @click="selectModel()">展示</div>
+            <div :class="!selectShow ? 'service-title-selected' : ''" @click='selectModel()'>服务说明</div>
         </div>
         <div class="service-intro">
-            <div class="image-content" >
+            <div class="image-content" v-show="selectShow">
                 <img src="https://cdn.himokids.com/kids-sample/e6686e60d23eb0a7f846ebe79801d048.png">
                 <img src="https://cdn.himokids.com/kids-sample/f628b0ec8347b7ebdb380212afabbe4d.png">
                 <img src="https://cdn.himokids.com/kids-sample/14ee71cf6515e93e6aacbbb8d43858a0.png">
                 <img src="https://cdn.himokids.com/kids-sample/23ba3f88e5787c7d147d3d06fd9d0b09.png">
             </div>
-            <div class="image-intro-content" style="display: none">
+            <div class="image-intro-content" v-show="!selectShow">
                 <img src="https://cdn.himokids.com/HMA_Kids_Upload/intro-familyWarm.png">
             </div>
         </div>
@@ -91,37 +91,42 @@
 </body>
 <script type="text/javascript" src="./js/common/vue.js"></script>
 <script type="text/javascript">
-    var serviceTitle = document.querySelector('.service-title');
-    var serviceChildren = serviceTitle.children;
-    var serviceIntro = document.querySelectorAll('.service-intro div');
-    console.log(serviceIntro);
-    for (var i = 0; i < serviceChildren.length; i++) {
-        let index = i
-        serviceChildren[index].onclick = () =>{
-            serviceChildren[0].className = '';
-            serviceChildren[1].className = '';
-            serviceChildren[index].className = 'service-title-selected'
-            serviceIntro[0].style = 'display: none'
-            serviceIntro[0].style = 'display: none'
-            serviceIntro[index].style = 'display: block'
+    // var serviceTitle = document.querySelector('.service-title');
+    // var serviceChildren = serviceTitle.children;
+    // var serviceIntro = document.querySelectorAll('.service-intro div');
+    // console.log(serviceIntro);
+    // for (var i = 0; i < serviceChildren.length; i++) {
+    //     let index = i
+    //     serviceChildren[index].onclick = () =>{
+    //         serviceChildren[0].className = '';
+    //         serviceChildren[1].className = '';
+    //         serviceChildren[index].className = 'service-title-selected'
+    //         serviceIntro[0].style = 'display: none'
+    //         serviceIntro[0].style = 'display: none'
+    //         serviceIntro[index].style = 'display: block'
 
-        }
-    }
-    // var vm = new Vue({
-    //     el:'.service-title',
-    //     data:{},
-    //     methods:{
-    //         selectModel : function(){
-    //             // this.className = 'service-title-selected'
-    //             // var parents = this.parents();
-    //             console.log(this)
-    //             this.className = 'service-title-selected'
-    //         }
     //     }
-    // })
-
-    // function selectModel(){
-    //     console.log(this)
     // }
+    var vm = new Vue({
+        el:'.service-title',
+        data() {
+            return{
+                selectShow: true
+            }
+        },
+        methods:{
+            selectModel : function(){
+                // this.className = 'service-title-selected'
+                // var parents = this.parents();
+                console.log(this.$refs.box)
+                this.selectShow = !this.selectShow
+                // this.className = 'service-title-selected'
+            }
+        }
+    })
+
+    function selectModel(){
+        console.log(this)
+    }
 </script>
 </html>
