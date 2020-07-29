@@ -62,9 +62,9 @@
         </div>
     </div>
     <div class="service-photo">
-        <div class="service-title">
-            <div class="service-title-selected">展示</div>
-            <div>服务说明</div>
+        <div class="service-title" ref="box">
+            <div class="service-title-selected" @click="selectModel()">展示</div>
+            <div @click='selectModel()'>服务说明</div>
         </div>
         <div class="service-intro">
             <div class="image-content" >
@@ -89,6 +89,7 @@
 </div>
 
 </body>
+<script type="text/javascript" src="./js/common/vue.js"></script>
 <script type="text/javascript">
     var serviceTitle = document.querySelector('.service-title');
     var serviceChildren = serviceTitle.children;
@@ -106,6 +107,21 @@
 
         }
     }
+    // var vm = new Vue({
+    //     el:'.service-title',
+    //     data:{},
+    //     methods:{
+    //         selectModel : function(){
+    //             // this.className = 'service-title-selected'
+    //             // var parents = this.parents();
+    //             console.log(this)
+    //             this.className = 'service-title-selected'
+    //         }
+    //     }
+    // })
 
+    // function selectModel(){
+    //     console.log(this)
+    // }
 </script>
 </html>
