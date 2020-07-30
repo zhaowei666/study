@@ -115,7 +115,7 @@
                     <div class="service-card-product-value"  v-for='(item, key) in detail.msg.P_Sku'>
                         <span :class="service_card_value_selected ? 'service-card-product-value-selected' : '' "  @click="chooseItem" v-for="count in +item.PS_MaxPerson" v-if="count >= +item.PS_MinPerson">
                           {{ count }}人
-                        </spanif>
+                        </span>
                     </div>
                 </div>
             </div>
