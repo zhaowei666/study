@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/detail.css">
     <title>产品详情</title>
 </head>
@@ -105,15 +106,26 @@
                         产品类型
                     </div>
                     <div class="service-card-product-value">
-                        <span v-for='(item, index) in detail.msg.P_Sku' v-text="item.PS_Title"></span>
+                        <span v-for='(item, index) in detail.msg.P_Sku'
+                              v-text="item.PS_Title"
+                              :class="getClass(index, item)"
+                              @click="chooseItem()"
+                        >
+
+                        </span>
                     </div>
                 </div>
                 <div class="service-card-people-num">
                     <div class="people-num-title">
                         人数类型
                     </div>
-                    <div class="service-card-product-value"  v-for='(item, key) in detail.msg.P_Sku'>
-                        <span :class="service_card_value_selected ? 'service-card-product-value-selected' : '' "  @click="chooseItem" v-for="count in +item.PS_MaxPerson" v-if="count >= +item.PS_MinPerson">
+                    <div class="service-card-product-value">
+                        <span
+                                v-for="count in +detail.msg.P_Sku[0].PS_MaxPerson" :key="count"
+                                @click="chooseItem()"
+                                v-if="count >= +detail.msg.P_Sku[0].PS_MinPerson"
+                                :class="getClass(count, detail.msg.P_Sku[0])"
+                        >
                           {{ count }}人
                         </span>
                     </div>
@@ -122,10 +134,10 @@
             <div class="service-card-bottom">
                 <div class="service-card-bottom-price">
                         <span>合计:</span>
-                        <span>￥2599.00</span>
+                        <span>￥{{ countPrice }}</span>
                 </div>
                 <div class="service-card-button">
-                    确定
+                    <a href="./reserve.html">确定</a>
                 </div>
             </div>
         </div>
