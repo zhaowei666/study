@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <tom :tom="tom" @jerry-add="addJerry($event)"></tom>
+    <jerry :jerry="jerry" @tom-add="addTom($event)"></jerry>
+</div>
+<script src="js/common/vue.js">
+</script>
+<script type="text/javascript">
+    Vue.component('tom', {
+        props: ['tom'],
+        template: `
+            <div>
+            <h2>{{tom}}</h2>
+            <button @click="$emit('jerry-add', 2)">Tom</button>
+            </div>
+        `
+    });
+    Vue.component('jerry', {
+        props: ['jerry'],
+        template: `
+                <div style="background-color:#ccc;">
+                <h2>{{jerry}}</h2>
+                <button @click="$emit('tom-add', 3)">jerry</button>
+                </div>
+        `
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            jerry:0,
+            tom:0
+        },
+        methods: {
+            addJerry:function ($event){
+                this.jerry += $event
+                console.log($event)
+            },
+            addTom: function ($event) {
+                this.tom += $event
+
+            }
+        }
+
+    });
+</script>
+
+
+</body>
+</html>

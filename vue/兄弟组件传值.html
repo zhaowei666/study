@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <tom></tom>
+    <jerry></jerry>
+</div>
+<script src="js/common/vue.js">
+</script>
+<script type="text/javascript">
+    //定义全局事件中心
+    var Hub = new Vue();
+    Vue.component('tom', {
+        data: function () {
+            return {
+                num: 0
+            }
+        },
+        template: `
+          <div>
+          <h2>Tom:{{ num }}</h2>
+          <button @click="handle()">Tom</button>
+          </div>
+        `,
+        methods: {
+            handle: function () {
+                Hub.$emit('add-jerry', 2);
+            }
+        },
+        mounted: function () {
+            Hub.$on('add-tom', (val) => {
+                this.num += val;
+            })
+        },
+    });
+    Vue.component('jerry', {
+        data: function () {
+            return {
+                num: 1
+            }
+        },
+        template: `
+          <div style="background-color:#ccc;">
+          <h2>JERRY:{{ num }}</h2>
+          <button @click="handle">jerry</button>
+          </div>
+        `,
+        mounted: function () {
+            Hub.$on('add-jerry', (val) => {
+                this.num += val;
+            })
+        },
+        methods: {
+            handle:function () {
+                Hub.$emit('add-tom', 10);
+
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            jerry: 0,
+            tom: 0
+        },
+        methods: {
+            addJerry: function ($event) {
+                this.jerry += $event
+                console.log($event)
+            },
+            addTom: function ($event) {
+                this.tom += $event
+
+            }
+        }
+
+    });
+</script>
+
+
+</body>
+</html>

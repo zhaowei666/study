@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <hello-1></hello-1>
+</div>
+<script src="js/common/vue.js">
+</script>
+
+<script type="text/javascript">
+    var HelloWorld = {
+        data: function (){
+            return {
+                msg: 'hello 1'
+            }
+        },
+        template : `<h1>{{  msg }}</h1>`
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        components: {
+            'hello-1': HelloWorld
+        }
+
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <a href="#/zhuye">主页</a>
+    <a href="#/keji">科技</a>
+    <a href="#/caijing">财经</a>
+    <a href="#/yule">娱乐</a>
+    <component :is="route"></component>
+</div>
+
+<script src="../js/common/vue.js"></script>
+<script type="text/javascript">
+    //定义局部路由
+    var KeJiCom = {
+        template: `<h1>科技相关</h1>`
+    }
+    var CaiJingCom = {
+        template: `<h1>财经相关</h1>`
+    }
+    var ZhuYeCom = {
+        template: `<h1>主页相关</h1>`
+    }
+    var YuLeCom = {
+        template: `<h1>娱乐相关</h1>`
+    }
+
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            route : 'zhuye'
+        },
+        components: {
+            'zhuye':ZhuYeCom,
+            'caijing':CaiJingCom,
+            'keji': KeJiCom,
+            'yule':YuLeCom
+        }
+    })
+    window.onhashchange = function() {
+        switch(location.hash.slice(1)){
+            case '/zhuye':
+                vm.route = 'zhuye'
+                break
+            case '/caijing':
+                vm.route = 'caijing'
+                break
+            case '/keji':
+                vm.route = 'keji'
+                break
+            case '/yule':
+                vm.route = 'yule'
+                break
+        }
+
+        // 通过 location.hash 获取到最新的 hash 值
+    }
+</script>
+</body>
+</html>

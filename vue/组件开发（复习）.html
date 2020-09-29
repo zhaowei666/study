@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <hello-world></hello-world>
+    <hello-baby></hello-baby>
+    <locala></locala>
+</div>
+<script src="js/common/vue.js">
+</script>
+<script type="text/javascript">
+<!--    定义组件(中划线)-->
+Vue.component('hello-world', {
+    data: function () {
+        return {
+            name:"轻头纱亲子照"
+        }
+    },
+    template: `
+            <div>
+                {{name}}
+            </div>
+    `
+})
+    //定义组件（驼峰）
+Vue.component('HelloBaby', {
+    data: function (){
+        return {
+            desc: "轻轻轻轻"
+        }
+    },
+    template: `
+            <h1>{{desc}}</h1>
+    `
+})
+
+//局部组件
+var helloLocalA = {
+    data: function (){
+        return {
+            local:'local1'
+        }
+    },
+    template: `
+        <span style="background-color:red;">{{local}}</span>
+    `
+}
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        components:{
+            locala: helloLocalA
+        }
+
+    });
+</script>
+
+
+
+</body>
+</html>

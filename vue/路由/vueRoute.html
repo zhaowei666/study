@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/user">User</router-link>
+    <router-link to="/login">Login</router-link>
+    <router-view></router-view>
+</div>
+<script src="../js/common/vue.js"></script>
+<script src="../js/common/vue-router_3.0.2.js"></script>
+<script type="text/javascript">
+    ///定义路由
+    var User = {
+        template:`<h1>user</h1>`
+    }
+    var Login = {
+        template: `<h1>Login</h1>`
+    }
+    var route = new VueRouter({
+        routes: [
+            {
+                path:'/user',
+                component: User
+            },
+            {
+                path:'/login',
+                component: Login
+            },
+            {
+                path:'/',
+                redirect: '/user'
+            }
+        ]
+    })
+
+
+    var vm = new Vue({
+        el:'#app',
+        data: {
+        },
+        router : route
+    })
+</script>
+</body>
+</html>

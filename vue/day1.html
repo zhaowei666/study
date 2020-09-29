@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div class="tab">
+        <ul>
+            <!--  通过v-on 添加点击事件   需要把当前li 的索引传过去
+            -->
+            <li v-on:click='change(id)'
+                v-for='(item,id) in list'>{{item.title}}</li>
+        </ul>
+        <div :class='currentIndex==index?"current":""'
+             :key='item.id' v-for='(item, index) in list'>
+        </div>
+    </div>
+</div>
+
+<script src="./js/common/vue.js"></script>
+<script>
+    new  Vue({
+        el: '#app',
+        data: {
+            currentIndex: 0, // 选项卡当前的索引  默认为 0
+            list: [{
+                id: 1,
+                title: 'apple',
+            }, {
+                id: 2,
+                title: 'orange',
+            }, {
+                id: 3,
+                title: 'lemon',
+            }]
+        },
+        methods: {
+            change: function(index) {
+                // 通过传入过来的索引来让当前的  currentIndex  和点击的index 值 相等
+                //  从而实现 控制类名
+                this.currentIndex = index;
+                console.log(this.currentIndex)
+            }
+        }
+
+    })
+
+</script>
+</body>
+</html>

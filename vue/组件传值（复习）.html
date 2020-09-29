@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <tom :hobby="hobby"></tom>
+
+    <div style="background-color: #ccc; width: 200px;height: 200px;">
+        <h1>兄弟组件传值</h1>
+        <product></product>
+        <service></service>
+    </div>
+
+</div>
+<script src="js/common/vue.js">
+</script>
+
+<script type="text/javascript">
+    //定义组件
+    Vue.component('tom', {
+        props:['hobby'],
+        data: function () {
+            return {
+                name:'汤姆',
+                age:10
+            }
+        },
+        template:`
+            <div style="border: 1px solid #ccc">
+              <span> {{name}}</span>
+              <span style="color: blue"> <b>{{age}}</b></span>
+              <br>
+                <span>来自父组件的爱好：{{hobby}}</span>
+            </div>
+        `
+    })
+    //定义事件中心
+    var Hub = new Vue();
+    Vue.component('product', {
+        data: function () {
+            return {
+                price:100
+            }
+        },
+        template: `
+                <div>
+
+                <span>价格是：{{price}}</span>
+                <button @click="addProduct()">添加服务</button>
+                </div>
+        `,
+        methods:{
+            addProduct: function () {
+                Hub.$emit('add-product', 100);
+            }
+        },
+        mounted:function () {
+            Hub.$on('add-service', (val) => {
+                this.price+=val
+            })
+
+        }
+    })
+
+    Vue.component('service', {
+        data: function () {
+            return {
+                price: 50
+            }
+        },
+        template:`
+        <div style="background-color:pink;">
+        <span>服务价格： {{price}}</span>
+        <button @click="addService()">添加产品</button>
+        </div>
+        `,
+        mounted:function () {
+            Hub.$on('add-product', (val) => {
+                this.price+=val
+            })
+
+
+        },
+        methods: {
+            addService : function () {
+                Hub.$emit('add-service', 50);
+            }
+        }
+    })
+
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            hobby:'抓老鼠'
+        }
+
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>{{ product }}</div>
+    <children :product-list="productList"></children>
+</div>
+<script src="js/common/vue.js">
+</script>
+
+<script type="text/javascript">
+<!--    定义子组件-->
+Vue.component('children', {
+    props:['productList'],
+    data: function (){
+        return {
+            name: '四张'
+        }
+    },
+    template: `
+            <div>
+              <ul>
+                <li v-for="service in productList" :key="index" > {{ service }}</li>
+              </ul>
+            <button @click="addProduct()"> 添加 </button>
+            </div>
+    `,
+    methods: {
+        addProduct: function () {
+            this.productList.push('站');
+        }
+    }
+})
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            product: '生日照-排队惊喜',
+            productList: [
+                '证件照',
+                '生日照',
+                '全家福'
+            ]
+        }
+
+    });
+</script>
+
+
+
+</body>
+</html>

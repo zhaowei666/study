@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+//     fetch('https://api-gateway.hzmantu.com/project_kids/user/product/product_discount?storeId=3013').then(function (res) {
+// return res.text();
+//     }).then(function (item) {
+//         console.log(item)
+//
+//     })
+
+fetch('https://api-gateway.hzmantu.com/store/getHaveStoreCity', {
+    method:'post',
+    body:JSON.stringify({"store_type":["kids"]}),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}).then(function (res) {
+    return res.json()
+}).then(function (item) {
+    console.log(item)
+
+})
+</script>
+</html>

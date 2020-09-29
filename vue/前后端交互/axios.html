@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="../js/common/axios.js"></script>
+<script type="text/javascript" src="../js/common/vue.js"></script>
+<script type="text/javascript">
+    var vm = new Vue()
+    // axios.get('https://api-gateway.hzmantu.com/project_kids/user/product/product_discount', {
+    //     params: {
+    //         storeId : 3001
+    //     }
+    // })
+    // .then(function (res){
+    //     console.log(res.data)
+    //
+    // })
+
+    //post
+    // axios.post('https://api-gateway.hzmantu.com/store/getHaveStoreCity', {"store_type":["kids"]}).then(ret => {
+    //     console.log(ret.data)
+    // })
+
+    // var params = new URLSearchParams();
+    // params.append('user', 'ashd');
+    // axios.post('http://localhost:3001/Banner/testApi', params).then(function (res) {
+    //     console.log(res.data)
+    // })
+
+    // axios.get('https://api-gateway.hzmantu.com/user_auth/login/pass?phone=15135874371&pass=lianju0703&brand=himo')
+    // .then(ret => {
+    //
+    //     var xStreamId = ret.headers['x-stream-id'];
+    //
+    //     // var arr = ret.headers.toArray()
+    //     console.log(xStreamId)
+    // })
+
+    var userInfo = 'https://api-gateway.hzmantu.com/himo_product/user/mine/detail';
+    // var xStreamId = '.6XdkP0bcf5HyTg9iQq1QrwZPn5bZqtd';
+    // axios.defaults.headers['x-stream-id'] = xStreamId;
+    // axios.get(userInfo)
+    // .then(ret => {
+    //     console.log(ret.data)
+    // })
+
+    async function loginAndGetUserInfo(user, pwd) {
+        var xStreamId = false;
+        await axios.get(`https://api-gateway.hzmantu.com/user_auth/login/pass?phone=${user}&pass=${pwd}&brand=himo`).then(res => {
+            xStreamId = res.headers['x-stream-id'] ?? false
+        })
+        var userDetail = [];
+        if (xStreamId){
+            axios.defaults.headers['x-stream-id'] = xStreamId
+           await axios.get(userInfo).then(ret => {
+                userDetail = ret.data;
+            })
+        }
+        return userDetail;
+    }
+
+    loginAndGetUserInfo('15135874371', 'lianju0703').then(function (item) {
+        console.log(item)
+    });
+
+
+</script>
+</body>
+</html>

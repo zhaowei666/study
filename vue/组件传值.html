@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <hello-world :price="price"></hello-world>
+</div>
+<script src="js/common/vue.js">
+</script>
+<script type="text/javascript">
+<!--    定义组件(中划线)-->
+Vue.component('hello-world', {
+    //父传子
+    props:['price'],
+    data: function () {
+        return {
+            name:"轻头纱亲子照"
+        }
+    },
+    template: `
+            <div>
+                {{name}}
+            <h1>{{price}}</h1>
+            <button @click="handle">更</button>
+            </div>
+    `,
+    //子传父
+    methods:{
+        handle: function (){
+            this.price = 123
+        }
+    }
+})
+    //定义组件（驼峰）
+Vue.component('HelloBaby', {
+    data: function (){
+        return {
+            desc: "轻轻轻轻"
+        }
+    },
+    template: `
+            <h1>{{desc}}</h1>
+    `
+})
+
+//局部组件
+var helloLocalA = {
+    data: function (){
+        return {
+            local:'local1'
+        }
+    },
+    template: `
+        <span style="background-color:red;">{{local}}</span>
+    `
+}
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            price:599
+        },
+        components:{
+            locala: helloLocalA
+        }
+
+    });
+</script>
+
+
+
+</body>
+</html>

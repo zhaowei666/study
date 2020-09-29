@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/user/3">User3</router-link>
+    <router-link to="/user/1">User1</router-link>
+    <router-link to="/user/2">User2</router-link>
+    <router-link to="/user/4">User4</router-link>
+    <router-link to="/login">Login</router-link>
+    <router-view></router-view>
+</div>
+<script src="../js/common/vue.js"></script>
+<script src="../js/common/vue-router_3.0.2.js"></script>
+<script type="text/javascript">
+    ///定义路由
+    var User = {
+        template: `
+    <h1>user 用户id为： {{$route.params.id}}</h1>
+`
+    }
+    var Login = {
+        template: `
+        <div>
+        <h1>Login</h1>
+        <router-link to="/login/phone">loginByPhone</router-link>
+     <router-link to="/login/code">loginByCOde</router-link>
+     <router-view></router-view>
+</div>
+`
+    }
+    var LoginByPhone = {
+        template: `<h1>LoginByPhone子组件</h1>`
+    }
+    var LoginByCode = {
+        template: `<h1>LoginByCode子组件</h1>`
+    }
+    var route = new VueRouter({
+        routes: [
+            {
+                path: '/user/:id',
+                component: User
+            },
+            {
+                path: '/login',
+                component: Login,
+                children: [
+                    {
+                        path: '/login/phone',
+                        component:LoginByPhone
+                    },
+
+                    {
+                        path: '/login/code',
+                        component:LoginByCode
+                    }
+                ]
+            },
+            {
+                path: '/',
+                redirect: '/user'
+            }
+        ]
+    })
+
+
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        router: route
+    })
+</script>
+</body>
+</html>

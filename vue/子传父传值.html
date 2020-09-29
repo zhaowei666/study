@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div >{{price}}</div>
+    <tom @add-jerry="handle($event)"></tom>
+</div>
+<script src="js/common/vue.js">
+</script>
+<script type="text/javascript">
+    Vue.component('tom', {
+        data: function () {
+            return {
+                count: 2
+            }
+        },
+        template: `
+            <button @click="$emit('add-jerry', 2)">点击</button>
+        `
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            price: 599
+        },
+        methods:{
+            handle:function ($event) {
+                this.price += $event
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

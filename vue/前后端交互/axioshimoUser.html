@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li>
+            <input type="text" v-model="phone">
+        </li>
+        <li>
+            <input type="password" v-model="pwd"/>
+        </li>
+        <button @click="loginAndGetUserInfo">登录</button>
+    </ul>
+    <ul>
+        <li>用户名: {{user.wxname}}</li>
+        <li>手机号: {{user.phone}}</li>
+        <li>生日:{{user.birth}}</li>
+    </ul>
+
+</div>
+
+<script type="text/javascript" src="../js/common/axios.js"></script>
+<script type="text/javascript" src="../js/common/vue.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            user: {},
+            phone: null,
+            pwd: null,
+            xStreamId: null
+        },
+        methods: {
+            loginAndGetUserInfo: async function () {
+                try {
+                    if (!this.xStreamId) {
+                        await axios.get(`https://api-gateway.hzmantu.com/user_auth/login/pass?phone=${this.phone}&pass=${this.pwd}&brand=himo`).then(res => {
+                            this.xStreamId = res.headers['x-stream-id'] ?? false
+                        })
+                    }
+                    var userInfoUrl = 'https://api-gateway.hzmantu.com/himo_product/user/mine/detail';
+                    axios.defaults.headers['x-stream-id'] = this.xStreamId
+                    await axios.get(userInfoUrl).then(ret => {
+                        this.user = ret.data.msg
+                        console.log(this.user)
+                    })
+
+                } catch (e) {
+                    alert('登录失败')
+                }
+
+            },
+        }
+    })
+
+
+</script>
+</body>
+</html>
